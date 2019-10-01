@@ -11,5 +11,5 @@ apiurl="http://ipinfo.io/"
 
 for i in $(tail -n 1 $accesslog | awk '{print $1}')
 # Tell access.log's 1st column (ip) to API
-do curl -s $apiurl$i | jq -r '.city, .region, .country'
+do curl -s $apiurl$i | jq -r '.city, .region, .country, .timezone'
 done
